@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cozinha — Burger Falcone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#0a0a0b; --card:#111113; --text:#fff; --muted:#a1a1aa; --primary:#ef4444; }
+    * { box-sizing:border-box }
+    body { margin:0; font-family:Inter,sans-serif; background:var(--bg); color:var(--text); padding:20px; }
+    header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
+    h1 { margin:0; font-size:2rem; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; }
+    .card { background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:20px; }
+    .card h2 { margin:0 0 8px; font-size:1.6rem; }
+    .timer { font-size:2rem; font-weight:800; color:var(--primary); margin:8px 0 16px; }
+    .item { padding:8px 0; border-bottom:1px solid rgba(255,255,255,.06); font-size:1.1rem; }
+    .notes { color:#fcd34d; margin-top:12px; }
+    .empty { text-align:center; padding:80px 20px; color:var(--muted); font-size:1.2rem; }
+  </style>
+</head>
+<body>
+  <header><h1>🔥 Cozinha</h1><div id="clock"></div></header>
+  <div class="grid" id="orders"></div>
+  <script type="module">
+    const API = "/api";
+    const token = localStorage.getItem("admin_token");
+    if (!token) location.href = "/admin/";
+    const headers = { Authorization: `Bearer ${token}` };
+
+    function elapsed(createdAt) {
+      const start = new Date(createdAt.replace(" ", "T")).getTime();
+      const diff = Math.max(0, Date.now() - start);
+      const m = Math.floor(diff / 60000).toString().padStart(2, "0");
+      const s = Math.floor((diff % 60000) / 1000).toString().padStart(2, "0");
+      return `${m}:${s}`;
+    }
+
+    async function load() {
+      const res = await fetch(`${API}/orders/kitchen`, { headers });
+      const orders = await res.json();
+      const el = document.getElementById("orders");
+      if (!orders.length) { el.innerHTML = '<div class="empty">Nenhum pedido em preparo</div>'; return; }
+      el.innerHTML = orders.map((o) => `
+        <article class="card" data-created="${o.created_at}">
+          <h2>Pedido #${o.order_number}</h2>
+          <div class="timer" data-timer="${o.created_at}">${elapsed(o.created_at)}</div>
+          ${o.items.map((i) => `<div class="item"><strong>${i.quantity}x</strong> ${i.product_name}${i.addons?.length ? `<br><small>+ ${i.addons.map((a) => a.addon_name).join(", ")}</small>` : ""}</div>`).join("")}
+          ${o.notes ? `<p class="notes">⚠️ ${o.notes}</p>` : ""}
+        </article>`).join("");
+    }
+
+    setInterval(() => {
+      document.querySelectorAll("[data-timer]").forEach((el) => {
+        el.textContent = elapsed(el.dataset.timer);
+      });
+    }, 1000);
+
+    setInterval(load, 8000);
+    setInterval(() => { document.getElementById("clock").textContent = new Date().toLocaleTimeString("pt-BR"); }, 1000);
+    load();
+  </script>
+</body>
+</html>

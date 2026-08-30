@@ -1,0 +1,1382 @@
+{
+  "categories": [
+    {
+      "id": "smash",
+      "label": "Smash"
+    },
+    {
+      "id": "artesanais",
+      "label": "Artesanais"
+    },
+    {
+      "id": "tradicionais",
+      "label": "Tradicionais"
+    },
+    {
+      "id": "porcoes",
+      "label": "Porções"
+    },
+    {
+      "id": "omeletes",
+      "label": "Omeletes"
+    },
+    {
+      "id": "bebidas",
+      "label": "Bebidas"
+    },
+    {
+      "id": "cervejas",
+      "label": "Cervejas"
+    },
+    {
+      "id": "doses",
+      "label": "Doses"
+    },
+    {
+      "id": "adicionais",
+      "label": "Adicionais"
+    }
+  ],
+  "highlights": [
+    "falcone-smash",
+    "smash-bacon",
+    "galaxias",
+    "x-tudo",
+    "sanduiche-falcone",
+    "batata-completa"
+  ],
+  "products": [
+    {
+      "id": "smash-burguer",
+      "name": "Smash Burguer",
+      "description": "Pão brioche, alface, tomate, bife smash, 2 fatias de cheddar, barbecue e cebola roxa.",
+      "price": 22,
+      "category": "smash",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "smash-bacon",
+      "name": "Smash Bacon",
+      "description": "Pão brioche, alface, tomate, bife smash, bacon, 2 fatias de cheddar, barbecue e cebola roxa.",
+      "price": 26,
+      "category": "smash",
+      "badge": "Popular",
+      "image": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "duplo-smash",
+      "name": "Duplo Smash",
+      "description": "Pão brioche, alface, tomate, 2 bifes smash, bacon em dobro, 4 fatias de cheddar, barbecue e cebola roxa.",
+      "price": 30,
+      "category": "smash",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "falcone-smash",
+      "name": "Falcone Smash",
+      "description": "Pão brioche, alface, tomate, 2 bifes smash, 2 ovos, bacon em dobro, frango empanado, 4 fatias de cheddar, barbecue e cebola roxa.",
+      "price": 34,
+      "category": "smash",
+      "badge": "Destaque",
+      "image": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-artesanal",
+      "name": "X Artesanal",
+      "description": "Pão brioche, alface, tomate, milho, batata, bife artesanal, presunto e muçarela.",
+      "price": 22,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-artesanal-egg",
+      "name": "X Artesanal Egg",
+      "description": "Pão brioche, alface, tomate, milho, batata, bife artesanal, presunto, ovo e muçarela.",
+      "price": 24,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-artesanal-egg-bacon",
+      "name": "X Artesanal Egg Bacon",
+      "description": "Pão brioche, alface, tomate, milho, batata, bife artesanal, presunto, ovo, bacon e muçarela.",
+      "price": 26,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-duplo-artesanal",
+      "name": "X Duplo Artesanal",
+      "description": "Pão brioche, alface, tomate, milho, batata, 2 bifes artesanais, presunto e muçarela.",
+      "price": 26,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "oreo",
+      "name": "Oreo",
+      "description": "Pão brioche, alface, tomate, cebola roxa, 2 bifes artesanais, 2 fatias de muçarela e bacon.",
+      "price": 28,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "sparta",
+      "name": "Sparta",
+      "description": "Pão brioche, alface, tomate, 2 bifes artesanais e 2 fatias de muçarela.",
+      "price": 25,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "saturno",
+      "name": "Saturno",
+      "description": "Pão brioche, alface, tomate, 3 bifes artesanais e 2 fatias de muçarela.",
+      "price": 30,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "taz-mania",
+      "name": "Taz Mania",
+      "description": "Pão brioche, 2 bifes artesanais, 2 fatias de tomate, cebola roxa, bacon, frango e cheddar.",
+      "price": 30,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "patolino",
+      "name": "Patolino",
+      "description": "Pão brioche, bife artesanal, bacon, tomate, cebola roxa e cheddar.",
+      "price": 25,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "jerry",
+      "name": "Jerry",
+      "description": "Pão brioche, frango empanado, 2 fatias de tomate, cebola roxa e cheddar.",
+      "price": 26,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "frajola",
+      "name": "Frajola",
+      "description": "Pão brioche, bife artesanal, 2 fatias de tomate, cebola roxa, batata chips e cheddar.",
+      "price": 26,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "galaxias",
+      "name": "Galáxias",
+      "description": "Pão brioche, alface, tomate, bife artesanal, frango empanado, ovo, muçarela, bacon, cheddar e cebola roxa.",
+      "price": 32,
+      "category": "artesanais",
+      "badge": "Premium",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "falcone-peixe",
+      "name": "Falcone Peixe",
+      "description": "Pão brioche, alface, tomate, cebola, ovo, muçarela e filé de tilápia.",
+      "price": 32,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "falcone-caramelo",
+      "name": "Falcone Caramelo",
+      "description": "Pão brioche, alface, tomate, bife artesanal, muçarela e cebola caramelizada.",
+      "price": 27,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "mega",
+      "name": "Mega",
+      "description": "Pão brioche, alface, tomate, 2 bifes artesanais, muçarela e ovo.",
+      "price": 26,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "cinderela",
+      "name": "Cinderela",
+      "description": "Pão brioche, bife artesanal, muçarela, presunto, cebola roxa e 2 fatias de tomate.",
+      "price": 24,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "bumblebee",
+      "name": "Bumblebee",
+      "description": "Pão brioche, bife artesanal, alface, tomate, cebola roxa, 2 fatias de muçarela e bacon.",
+      "price": 27,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "megatron",
+      "name": "Megatron",
+      "description": "Pão brioche, tomate, cebola roxa, bife artesanal, frango empanado, cheddar e bacon.",
+      "price": 32,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "optimus-prime",
+      "name": "Optimus Prime",
+      "description": "Pão brioche, alface, tomate, 2 bifes artesanais, bacon, cebola roxa, cheddar e muçarela.",
+      "price": 30,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "meteoro",
+      "name": "Meteoro",
+      "description": "Pão brioche, alface, tomate, cebola roxa, bife artesanal, frango empanado e cheddar.",
+      "price": 28,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "double",
+      "name": "Double",
+      "description": "Pão brioche, alface, tomate, cebola roxa, cheddar e 2 bifes artesanais.",
+      "price": 28,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "mec-lanche",
+      "name": "Mec Lanche",
+      "description": "Pão brioche, alface, tomate, presunto, muçarela, bacon, ovo, frango e bife artesanal.",
+      "price": 28,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "novo-sanduiche-casa",
+      "name": "Novo Sanduíche da Casa",
+      "description": "Pão brioche, 2 bifes artesanais, 2 fatias de cheddar, alface, tomate e cebola empanada.",
+      "price": 32,
+      "category": "artesanais",
+      "badge": "Novo",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "sanduiche-china",
+      "name": "Sanduíche China",
+      "description": "Pão brioche, cheddar, bife artesanal, bacon, alface, tomate e cebola roxa.",
+      "price": 32,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "sanduiche-falcone",
+      "name": "Sanduíche Falcone",
+      "description": "Pão brioche, 3 fatias de cheddar, 3 ovos, 3 bifes artesanais, alface, tomate e cebola roxa.",
+      "price": 44,
+      "category": "artesanais",
+      "badge": "Top",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "sanduiche-bobo-bi",
+      "name": "Sanduíche Bobo Bi",
+      "description": "Pão brioche, bife artesanal, cheddar, ovo, bacon e muçarela empanada.",
+      "price": 32,
+      "category": "artesanais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "misto",
+      "name": "Misto",
+      "description": "Pão, 2 fatias de presunto e 2 fatias de muçarela.",
+      "price": 14,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "misto-ovo",
+      "name": "Misto com Ovo",
+      "description": "Pão, 2 fatias de presunto, 2 fatias de muçarela e ovo.",
+      "price": 15,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "misto-bacon",
+      "name": "Misto com Bacon",
+      "description": "Pão, 2 fatias de presunto, 2 fatias de muçarela e bacon.",
+      "price": 17,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "americano",
+      "name": "Americano",
+      "description": "Pão de forma, bife, presunto, muçarela, ovo, alface, tomate, milho e batata palha.",
+      "price": 18,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "bauru",
+      "name": "Bauru",
+      "description": "Pão de forma, ovo, 2 fatias de presunto, 2 fatias de muçarela, alface, tomate, milho e batata palha.",
+      "price": 16,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "quaresma",
+      "name": "Quaresma",
+      "description": "Pão, ovo, 2 fatias de muçarela, alface, tomate, milho e batata palha.",
+      "price": 16,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "hamburguer",
+      "name": "Hambúrguer",
+      "description": "Pão, bife, alface, tomate, milho e batata palha.",
+      "price": 15,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "hamburguer-ovo",
+      "name": "Hambúrguer com Ovo",
+      "description": "Pão, bife, ovo, alface, tomate, milho e batata palha.",
+      "price": 17,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "hamburgao",
+      "name": "Hamburgão",
+      "description": "Pão, 2 bifes, alface, tomate, milho e batata palha.",
+      "price": 17,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-salada",
+      "name": "X Salada",
+      "description": "Pão, alface, tomate, 2 fatias de presunto, 2 fatias de muçarela, milho e batata palha.",
+      "price": 15,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-burguer",
+      "name": "X Burguer",
+      "description": "Pão, bife, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 17,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-egg",
+      "name": "X Egg",
+      "description": "Pão, bife, presunto, muçarela, ovo, alface, tomate, milho e batata palha.",
+      "price": 18,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-duplo",
+      "name": "X Duplo",
+      "description": "Pão, 2 bifes, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 19,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-frango",
+      "name": "X Frango",
+      "description": "Pão, bife, frango, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 21,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-bacon",
+      "name": "X Bacon",
+      "description": "Pão, bife, bacon, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 21,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "triplo-x",
+      "name": "Triplo X",
+      "description": "Pão, alface, tomate, milho, batata, bife e 3 fatias de muçarela.",
+      "price": 18,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-egg-bacon",
+      "name": "X Egg Bacon",
+      "description": "Pão, bife, ovo, bacon, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 23,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-egg-frango",
+      "name": "X Egg Frango",
+      "description": "Pão, frango, bife, ovo, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 23,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-frango-bacon-especial",
+      "name": "X Frango com Bacon Especial",
+      "description": "Pão, bife, alface, tomate, milho, batata, frango, presunto, bacon e muçarela.",
+      "price": 24,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-calabresa",
+      "name": "X Calabresa",
+      "description": "Pão, alface, tomate, milho, batata, bife, presunto, calabresa e muçarela.",
+      "price": 22,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-egg-calabresa",
+      "name": "X Egg Calabresa",
+      "description": "Pão, alface, tomate, milho, batata, bife, ovo, presunto, calabresa e muçarela.",
+      "price": 23,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-calabresa-egg-bacon",
+      "name": "X Calabresa Egg Bacon",
+      "description": "Pão, alface, tomate, milho, batata, presunto, ovo, bife, bacon, calabresa e muçarela.",
+      "price": 25,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-tudo",
+      "name": "X Tudo",
+      "description": "Pão, bife, ovo, bacon, frango, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 25,
+      "category": "tradicionais",
+      "badge": "Clássico",
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-picanha",
+      "name": "X Picanha",
+      "description": "Pão, bife de picanha, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 21,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-picanha-egg",
+      "name": "X Picanha Egg",
+      "description": "Pão, bife de picanha, ovo, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 23,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-picanha-egg-bacon",
+      "name": "X Picanha Egg Bacon",
+      "description": "Pão, bife de picanha, bacon, ovo, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 25,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "x-egg-picanha-frango",
+      "name": "X Egg Picanha Frango",
+      "description": "Pão, alface, tomate, milho, batata, bife de picanha 120g, presunto, ovo, frango e muçarela.",
+      "price": 25,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "falcone-especial",
+      "name": "Burger Falcone",
+      "description": "Pão, 2 bifes, 2 ovos, frango, bacon, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 28,
+      "category": "tradicionais",
+      "badge": "Da casa",
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "falcone-prato",
+      "name": "Burger Falcone no Prato",
+      "description": "Pão, 2 bifes, 2 ovos, frango, bacon, presunto, muçarela, alface, tomate, milho e batata palha.",
+      "price": 28,
+      "category": "tradicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "novidade-marmitex",
+      "name": "Novidade Marmitex",
+      "description": "Pão, alface, tomate, milho, batata, 2 bifes, ovo, presunto, bacon, frango, abacaxi, banana, calabresa e muçarela.",
+      "price": 32,
+      "category": "tradicionais",
+      "badge": "Novo",
+      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "contra-file-fritas",
+      "name": "Contra Filé c/ Fritas",
+      "description": "Porção de contra filé com batata frita.",
+      "price": 70,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "contra-file-sem-fritas",
+      "name": "Contra Filé s/ Fritas",
+      "description": "Porção de contra filé sem batata.",
+      "price": 60,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "tilapia-fritas",
+      "name": "Filé de Tilápia c/ Fritas",
+      "description": "Filé de tilápia com batata frita.",
+      "price": 70,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "tilapia-sem-fritas",
+      "name": "Filé de Tilápia s/ Fritas",
+      "description": "Filé de tilápia sem batata.",
+      "price": 60,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "batata-completa",
+      "name": "Batata Completa",
+      "description": "Batata completa com acompanhamentos.",
+      "price": 35,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "batata-simples",
+      "name": "Batata Simples",
+      "description": "Porção de batata frita simples.",
+      "price": 30,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1630431341973-02e1b662ec35?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "frango-passarinho-fritas",
+      "name": "Frango à Passarinho c/ Fritas",
+      "description": "Frango à passarinho com batata frita.",
+      "price": 60,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "frango-passarinho-sem-fritas",
+      "name": "Frango à Passarinho s/ Fritas",
+      "description": "Frango à passarinho sem batata.",
+      "price": 40,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "porcao-bife-artesanal",
+      "name": "Porção de Bife Artesanal",
+      "description": "Porção de bife artesanal.",
+      "price": 40,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "macarrao-chapa",
+      "name": "Macarrão na Chapa",
+      "description": "Bacon, frango, cebola, tomate, calabresa, sazón, muçarela e milho.",
+      "price": 26,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "batata-simples-individual",
+      "name": "Batata Simples (Individual)",
+      "description": "Porção individual de batata simples.",
+      "price": 10,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1630431341973-02e1b662ec35?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "batata-completa-individual",
+      "name": "Batata Completa (Individual)",
+      "description": "Porção individual de batata completa.",
+      "price": 13,
+      "category": "porcoes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-simples-m",
+      "name": "Omelete Simples (M)",
+      "description": "Ovo, cebola, catupiry, presunto, muçarela, milho, tomate e batata palha.",
+      "price": 18,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-simples-g",
+      "name": "Omelete Simples (G)",
+      "description": "Ovo, cebola, catupiry, presunto, muçarela, milho, tomate e batata palha.",
+      "price": 24,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-bacon-m",
+      "name": "Omelete de Bacon (M)",
+      "description": "Ovo, cebola, catupiry, presunto, muçarela, bacon, milho, tomate e batata palha.",
+      "price": 22,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-bacon-g",
+      "name": "Omelete de Bacon (G)",
+      "description": "Ovo, cebola, catupiry, presunto, muçarela, bacon, milho, tomate e batata palha.",
+      "price": 30,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-frango-m",
+      "name": "Omelete de Frango (M)",
+      "description": "Ovo, cebola, catupiry, presunto, muçarela, frango, milho, tomate e batata palha.",
+      "price": 22,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-frango-g",
+      "name": "Omelete de Frango (G)",
+      "description": "Ovo, cebola, catupiry, presunto, muçarela, frango, milho, tomate e batata palha.",
+      "price": 30,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-completo-m",
+      "name": "Omelete Completo (M)",
+      "description": "Ovo, cebola, catupiry, presunto, muçarela, frango, bacon, milho, tomate e batata palha.",
+      "price": 22,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-completo-g",
+      "name": "Omelete Completo (G)",
+      "description": "Ovo, cebola, catupiry, presunto, muçarela, frango, bacon, milho, tomate e batata palha.",
+      "price": 30,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-calabresa-m",
+      "name": "Omelete Calabresa (M)",
+      "description": "Ovo, cebola, presunto, muçarela, calabresa, catupiry, tomate, milho e batata palha.",
+      "price": 22,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "omelete-calabresa-g",
+      "name": "Omelete Calabresa (G)",
+      "description": "Ovo, cebola, presunto, muçarela, calabresa, catupiry, tomate, milho e batata palha.",
+      "price": 30,
+      "category": "omeletes",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "coca-2l",
+      "name": "Coca-Cola 2 Litros",
+      "description": "Refrigerante Coca-Cola 2 litros.",
+      "price": 20,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "sprite-2l",
+      "name": "Sprite 2 Litros",
+      "description": "Refrigerante Sprite 2 litros.",
+      "price": 17,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "guarana-2l",
+      "name": "Guaraná 2 Litros",
+      "description": "Refrigerante Guaraná 2 litros.",
+      "price": 17,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "fanta-2l",
+      "name": "Fanta 2 Litros",
+      "description": "Refrigerante Fanta 2 litros.",
+      "price": 17,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "mineiro-2l",
+      "name": "Mineiro 2 Litros",
+      "description": "Refrigerante Mineiro 2 litros.",
+      "price": 17,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "mineirinho-15l",
+      "name": "Mineirinho 1,5 Litro",
+      "description": "Refrigerante Mineirinho 1,5 litro.",
+      "price": 15,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "guarana-1l",
+      "name": "Guaraná 1 Litro",
+      "description": "Refrigerante Guaraná 1 litro.",
+      "price": 12,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "coca-600",
+      "name": "Coca-Cola 600 ml",
+      "description": "Refrigerante Coca-Cola 600 ml.",
+      "price": 10,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "fanta-600",
+      "name": "Fanta 600 ml",
+      "description": "Refrigerante Fanta 600 ml.",
+      "price": 10,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "sprite-600",
+      "name": "Sprite 600 ml",
+      "description": "Refrigerante Sprite 600 ml.",
+      "price": 10,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "mineirinho-600",
+      "name": "Mineirinho 600 ml",
+      "description": "Refrigerante Mineirinho 600 ml.",
+      "price": 10,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "coca-lata",
+      "name": "Coca-Cola Lata",
+      "description": "Refrigerante Coca-Cola em lata.",
+      "price": 8,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "fanta-lata",
+      "name": "Fanta Lata",
+      "description": "Refrigerante Fanta em lata.",
+      "price": 8,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "sprite-lata",
+      "name": "Sprite Lata",
+      "description": "Refrigerante Sprite em lata.",
+      "price": 8,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "guarana-lata",
+      "name": "Guaraná Lata",
+      "description": "Refrigerante Guaraná em lata.",
+      "price": 8,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "coca-200",
+      "name": "Coca-Cola 200 ml",
+      "description": "Refrigerante Coca-Cola 200 ml.",
+      "price": 4,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "guarana-200",
+      "name": "Guaraná 200 ml",
+      "description": "Refrigerante Guaraná 200 ml.",
+      "price": 4,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "mineirinho-200",
+      "name": "Mineirinho 200 ml",
+      "description": "Refrigerante Mineirinho 200 ml.",
+      "price": 4,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "agua-sem-gas",
+      "name": "Água 500 ml s/ Gás",
+      "description": "Água mineral sem gás 500 ml.",
+      "price": 4,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "agua-com-gas",
+      "name": "Água 500 ml c/ Gás",
+      "description": "Água mineral com gás 500 ml.",
+      "price": 5,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "h2o-500",
+      "name": "H2O 500 ml",
+      "description": "Bebida H2O 500 ml.",
+      "price": 8,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "delvalle-lata",
+      "name": "Del Valle Lata",
+      "description": "Suco Del Valle em lata.",
+      "price": 8,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "delvalle-1l",
+      "name": "Del Valle 1 Litro",
+      "description": "Suco Del Valle 1 litro.",
+      "price": 12,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "energetico-2l",
+      "name": "Energético 2 Litros",
+      "description": "Energético 2 litros.",
+      "price": 15,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "monster-latao",
+      "name": "Monster Latão",
+      "description": "Energético Monster latão.",
+      "price": 15,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "red-bull",
+      "name": "Red Bull",
+      "description": "Energético Red Bull.",
+      "price": 15,
+      "category": "bebidas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "heineken-600",
+      "name": "Heineken 600 ml",
+      "description": "Cerveja Heineken 600 ml.",
+      "price": 17,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "stella-600",
+      "name": "Stella 600 ml",
+      "description": "Cerveja Stella Artois 600 ml.",
+      "price": 17,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "spaten-600",
+      "name": "Spaten 600 ml",
+      "description": "Cerveja Spaten 600 ml.",
+      "price": 17,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "brahma-600",
+      "name": "Brahma 600 ml",
+      "description": "Cerveja Brahma 600 ml.",
+      "price": 14,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "boa-600",
+      "name": "Boa 600 ml",
+      "description": "Cerveja Boa 600 ml.",
+      "price": 14,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "skol-600",
+      "name": "Skol 600 ml",
+      "description": "Cerveja Skol 600 ml.",
+      "price": 14,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "heineken-473",
+      "name": "Heineken 473 ml",
+      "description": "Cerveja Heineken 473 ml.",
+      "price": 12,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "skol-473",
+      "name": "Skol 473 ml",
+      "description": "Cerveja Skol 473 ml.",
+      "price": 10,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "brahma-473",
+      "name": "Brahma 473 ml",
+      "description": "Cerveja Brahma 473 ml.",
+      "price": 10,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "boa-473",
+      "name": "Boa 473 ml",
+      "description": "Cerveja Boa 473 ml.",
+      "price": 10,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "kaiser-473",
+      "name": "Kaiser 473 ml",
+      "description": "Cerveja Kaiser 473 ml.",
+      "price": 10,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "subzero-473",
+      "name": "Sub Zero 473 ml",
+      "description": "Cerveja Sub Zero 473 ml.",
+      "price": 10,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "amstel-473",
+      "name": "Amstel 473 ml",
+      "description": "Cerveja Amstel 473 ml.",
+      "price": 10,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "petra-473",
+      "name": "Petra 473 ml",
+      "description": "Cerveja Petra 473 ml.",
+      "price": 10,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "budweiser-473",
+      "name": "Budweiser 473 ml",
+      "description": "Cerveja Budweiser 473 ml.",
+      "price": 10,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "spaten-473",
+      "name": "Spaten 473 ml",
+      "description": "Cerveja Spaten 473 ml.",
+      "price": 10,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "litrinho",
+      "name": "Litrinho",
+      "description": "Skol, Brahma, Boa ou Império — informe o sabor nas observações.",
+      "price": 5,
+      "category": "cervejas",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "chop-vinho-litro",
+      "name": "Chop Vinho Litro",
+      "description": "Chop de vinho — litro.",
+      "price": 15,
+      "category": "doses",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "pergola-litro",
+      "name": "Pérgola Litro",
+      "description": "Vinho Pérgola — litro.",
+      "price": 36,
+      "category": "doses",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "pergola-copo",
+      "name": "Pérgola Copo",
+      "description": "Vinho Pérgola — copo.",
+      "price": 7,
+      "category": "doses",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "cancao-litro",
+      "name": "Canção Vinho Litro",
+      "description": "Vinho Canção — litro.",
+      "price": 25,
+      "category": "doses",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "cancao-copo",
+      "name": "Canção Vinho Copo",
+      "description": "Vinho Canção — copo.",
+      "price": 5,
+      "category": "doses",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "catuaba-litro",
+      "name": "Catuaba Litro",
+      "description": "Catuaba — litro.",
+      "price": 30,
+      "category": "doses",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "catuaba-copo",
+      "name": "Catuaba Copo",
+      "description": "Catuaba — copo.",
+      "price": 5,
+      "category": "doses",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "conhaque-dose",
+      "name": "Conhaque Dose",
+      "description": "Dose de conhaque.",
+      "price": 5,
+      "category": "doses",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-cheddar",
+      "name": "Cheddar",
+      "description": "Adicional de cheddar.",
+      "price": 3,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-cheddar-cremoso",
+      "name": "Cheddar Cremoso",
+      "description": "Adicional de cheddar cremoso.",
+      "price": 2,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-catupiry",
+      "name": "Catupiry",
+      "description": "Adicional de catupiry.",
+      "price": 2,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-ovo",
+      "name": "Ovo",
+      "description": "Adicional de ovo.",
+      "price": 3,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-bife-tradicional",
+      "name": "Bife Tradicional",
+      "description": "Adicional de bife tradicional.",
+      "price": 4,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-bife-artesanal",
+      "name": "Bife Artesanal",
+      "description": "Adicional de bife artesanal.",
+      "price": 7,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-bife-smash",
+      "name": "Bife Smash",
+      "description": "Adicional de bife smash.",
+      "price": 7,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-bife-picanha",
+      "name": "Bife Picanha",
+      "description": "Adicional de bife de picanha.",
+      "price": 7,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-bacon",
+      "name": "Bacon",
+      "description": "Adicional de bacon.",
+      "price": 4,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-frango",
+      "name": "Frango",
+      "description": "Adicional de frango.",
+      "price": 4,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-frango-empanado",
+      "name": "Frango Empanado",
+      "description": "Adicional de frango empanado.",
+      "price": 7,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-presunto-mucarela",
+      "name": "Presunto e Muçarela",
+      "description": "Adicional de presunto e muçarela.",
+      "price": 3,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-mucarela-empanada",
+      "name": "Muçarela Empanada",
+      "description": "Adicional de muçarela empanada.",
+      "price": 7,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-cebola-empanada",
+      "name": "Cebola Empanada",
+      "description": "Adicional de cebola empanada.",
+      "price": 5,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+      "id": "add-cebola-roxa",
+      "name": "Cebola Roxa",
+      "description": "Adicional de cebola roxa.",
+      "price": 3,
+      "category": "adicionais",
+      "badge": null,
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+    }
+  ]
+}

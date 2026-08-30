@@ -1,0 +1,7 @@
+node_modules/
+data/burger_falcone.db
+data/burger_falcone.db-wal
+data/burger_falcone.db-shm
+uploads/
+.env
+.DS_Store

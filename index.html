@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Burger Falcone | Pedido Online</title>
+  <meta name="description" content="Peça online na Burger Falcone. Smash, artesanais, tradicionais, porções e bebidas. Finalize pelo WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Burger Falcone | Pedido Online" />
+  <meta property="og:description" content="Peça online na Burger Falcone. Finalize pelo WhatsApp." />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__box">
+      <div class="loader__spin"></div>
+      <p>Carregando cardápio...</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="app">
+    <!-- Capa da loja -->
+    <header class="store-cover">
+      <img
+        src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=1400&q=80"
+        alt="Burger Falcone"
+        class="store-cover__img"
+        width="1400"
+        height="420"
+        fetchpriority="high"
+      />
+    </header>
+
+    <!-- Info da loja -->
+    <section class="store-info">
+      <div class="store-info__logo" aria-hidden="true">BF</div>
+      <div class="store-info__text">
+        <h1>Burger Falcone</h1>
+        <p class="store-info__meta">
+          <span class="store-info__status" id="storeStatus">Aberto</span>
+          <span>·</span>
+          <span>Ter–Dom 18h–23h30</span>
+        </p>
+        <p class="store-info__desc">Smash · Artesanal · Tradicional · Porções</p>
+      </div>
+    </section>
+
+    <!-- Busca -->
+    <div class="search-wrap">
+      <label class="search" for="searchInput">
+        <i data-lucide="search"></i>
+        <input type="search" id="searchInput" placeholder="Buscar no cardápio..." autocomplete="off" />
+      </label>
+    </div>
+
+    <!-- Categorias sticky -->
+    <nav class="cats" id="cats" aria-label="Categorias">
+      <div class="cats__track" id="catsTrack"></div>
+    </nav>
+
+    <main class="app-main">
+      <!-- Destaques -->
+      <section class="block" id="destaques">
+        <h2 class="block__title">Destaques</h2>
+        <div class="highlights" id="highlights"></div>
+      </section>
+
+      <!-- Cardápio por categoria -->
+      <div id="menuSections"></div>
+    </main>
+
+    <!-- Rodapé simples -->
+    <footer class="app-footer" id="contato">
+      <h3>Burger Falcone</h3>
+      <p>Terça a Domingo · 18:00 às 23:30</p>
+      <p>Pedido pelo WhatsApp</p>
+      <p class="app-footer__copy">© 2026 Burger Falcone</p>
+    </footer>
+  </div>
+
+  <!-- Barra da sacola (estilo delivery) -->
+  <div class="bag-bar" id="bagBar" hidden>
+    <button type="button" class="bag-bar__btn" id="bagBarBtn">
+      <span class="bag-bar__count" id="bagBarCount">0</span>
+      <span class="bag-bar__label">Ver sacola</span>
+      <span class="bag-bar__total" id="bagBarTotal">R$ 0,00</span>
+    </button>
+  </div>
+
+  <!-- Drawer carrinho -->
+  <div class="drawer-overlay" id="cartOverlay" hidden></div>
+  <aside class="drawer" id="cartDrawer" aria-hidden="true" aria-labelledby="cartTitle">
+    <div class="drawer__header">
+      <h2 id="cartTitle">Sacola</h2>
+      <button class="icon-btn" id="closeCart" type="button" aria-label="Fechar">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="drawer__body" id="cartItems">
+      <div class="cart-empty">
+        <p><strong>Sacola vazia</strong></p>
+        <p>Adicione itens do cardápio para continuar.</p>
+      </div>
+    </div>
+    <div class="drawer__footer">
+      <div class="cart-summary">
+        <div class="cart-summary__row">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">R$ 0,00</strong>
+        </div>
+        <div class="cart-summary__row cart-summary__row--total">
+          <span>Total</span>
+          <strong id="cartTotal">R$ 0,00</strong>
+        </div>
+      </div>
+      <div class="drawer__actions">
+        <button class="btn btn--ghost" type="button" id="continueShopping">Continuar comprando</button>
+        <button class="btn btn--primary" type="button" id="checkoutBtn" disabled>Fazer pedido</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Checkout -->
+  <div class="modal-overlay" id="checkoutOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <div class="modal__header">
+        <h2 id="checkoutTitle">Finalizar pedido</h2>
+        <button class="icon-btn" id="closeCheckout" type="button" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <form class="checkout-form" id="checkoutForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="customerName">Nome *</label>
+            <input type="text" id="customerName" name="name" required autocomplete="name" placeholder="Seu nome" />
+          </div>
+          <div class="form-group">
+            <label for="customerPhone">Telefone *</label>
+            <input type="tel" id="customerPhone" name="phone" required autocomplete="tel" placeholder="(00) 00000-0000" maxlength="15" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group form-group--grow">
+            <label for="customerAddress">Endereço *</label>
+            <input type="text" id="customerAddress" name="address" required placeholder="Rua, avenida..." />
+          </div>
+          <div class="form-group form-group--sm">
+            <label for="customerNumber">Nº *</label>
+            <input type="text" id="customerNumber" name="number" required placeholder="123" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="customerComplement">Complemento</label>
+          <input type="text" id="customerComplement" name="complement" placeholder="Apto, bloco, referência..." />
+        </div>
+        <fieldset class="form-group">
+          <legend>Forma de pagamento *</legend>
+          <div class="payment-options">
+            <label class="payment-option">
+              <input type="radio" name="payment" value="Pix" required />
+              <span>Pix</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="Dinheiro" />
+              <span>Dinheiro</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="Cartão" />
+              <span>Cartão</span>
+            </label>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <label for="customerNotes">Observações</label>
+          <textarea id="customerNotes" name="notes" rows="3" placeholder="Ex: sem cebola, ponto da carne..."></textarea>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit">Enviar pedido pelo WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
