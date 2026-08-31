@@ -761,6 +761,7 @@ let cart = [];
 let activeCategory = "smash";
 let searchQuery = "";
 let categoryScrollLock = false;
+let syncCategoryFromScroll = () => {};
 
 let CATEGORIES = [
   { id: "smash", label: "Smash" },
@@ -897,7 +898,30 @@ function setActiveCategory(catId, scrollTabs = false) {
 
 function getCategoryScrollOffset() {
   const cats = document.getElementById("cats");
-  return (cats?.offsetHeight || 56) + 12;
+  if (!cats) return 68;
+  return Math.ceil(cats.getBoundingClientRect().height) + 8;
+}
+
+function getVisibleCategoryFromScroll() {
+  const marker = getCategoryScrollOffset() + 4;
+  let current = null;
+
+  for (const cat of CATEGORIES) {
+    const section = document.getElementById(`cat-${cat.id}`);
+    if (!section) continue;
+    if (section.getBoundingClientRect().top <= marker) {
+      current = cat.id;
+    } else {
+      break;
+    }
+  }
+
+  if (!current) {
+    const first = CATEGORIES.find((cat) => document.getElementById(`cat-${cat.id}`));
+    current = first?.id ?? activeCategory;
+  }
+
+  return current;
 }
 
 function scrollToCategory(catId) {
@@ -918,31 +942,27 @@ function scrollToCategory(catId) {
 function initCategoryScrollSpy() {
   let ticking = false;
 
+  syncCategoryFromScroll = () => {
+    if (categoryScrollLock || searchQuery) return;
+    const current = getVisibleCategoryFromScroll();
+    if (current) setActiveCategory(current, true);
+  };
+
   window.addEventListener(
     "scroll",
     () => {
       if (categoryScrollLock || searchQuery) return;
       if (ticking) return;
-
       ticking = true;
       requestAnimationFrame(() => {
         ticking = false;
-        const offset = getCategoryScrollOffset();
-        let current = null;
-
-        for (const cat of CATEGORIES) {
-          const section = document.getElementById(`cat-${cat.id}`);
-          if (!section) continue;
-          if (section.getBoundingClientRect().top <= offset) {
-            current = cat.id;
-          }
-        }
-
-        if (current) setActiveCategory(current, true);
+        syncCategoryFromScroll();
       });
     },
     { passive: true }
   );
+
+  syncCategoryFromScroll();
 }
 
 function productItemHTML(product) {
@@ -1031,6 +1051,7 @@ function refreshMenu() {
   renderCategories();
   renderHighlights();
   renderMenuSections();
+  syncCategoryFromScroll();
 }
 
 /* ---------- Cart ---------- */
