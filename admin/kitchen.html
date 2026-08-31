@@ -5,62 +5,235 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cozinha — Burger Falcone</title>
   <link rel="canonical" href="https://sthevandev.com.br/admin/kitchen.html" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet" />
   <style>
-    :root { --bg:#0a0a0b; --card:#111113; --text:#fff; --muted:#a1a1aa; --primary:#ef4444; }
+    :root { --bg:#0a0a0b; --card:#111113; --text:#fff; --muted:#a1a1aa; --primary:#ef4444; --border:rgba(255,255,255,.08); }
     * { box-sizing:border-box }
-    body { margin:0; font-family:Inter,sans-serif; background:var(--bg); color:var(--text); padding:20px; }
-    header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; }
-    h1 { margin:0; font-size:2rem; }
+    body { margin:0; font-family:Inter,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+    .login-screen { min-height:100vh; display:grid; place-items:center; padding:20px; }
+    .login-card { width:min(420px,100%); background:var(--card); border:1px solid var(--border); border-radius:20px; padding:32px; }
+    .login-card h1 { margin:0 0 8px; font-size:1.8rem; }
+    .login-card p { margin:0 0 24px; color:var(--muted); }
+    .field { display:grid; gap:8px; margin-bottom:16px; }
+    .field label { font-size:.9rem; color:var(--muted); }
+    .field input { width:100%; padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:#0d0d0f; color:var(--text); font:inherit; }
+    .btn { border:0; border-radius:12px; padding:14px 18px; font:inherit; font-weight:700; cursor:pointer; }
+    .btn--primary { width:100%; background:var(--primary); color:#fff; }
+    .btn--ghost { background:transparent; color:var(--muted); border:1px solid var(--border); }
+    .error { color:#fca5a5; margin-top:12px; font-size:.95rem; }
+    .kitchen { padding:20px; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:20px; flex-wrap:wrap; }
+    header h1 { margin:0; font-size:2rem; }
+    .header-actions { display:flex; align-items:center; gap:12px; color:var(--muted); }
     .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:16px; }
-    .card { background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:20px; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px; }
     .card h2 { margin:0 0 8px; font-size:1.6rem; }
     .timer { font-size:2rem; font-weight:800; color:var(--primary); margin:8px 0 16px; }
     .item { padding:8px 0; border-bottom:1px solid rgba(255,255,255,.06); font-size:1.1rem; }
     .notes { color:#fcd34d; margin-top:12px; }
-    .empty { text-align:center; padding:80px 20px; color:var(--muted); font-size:1.2rem; }
+    .empty, .status-box { text-align:center; padding:80px 20px; color:var(--muted); font-size:1.1rem; }
+    .status-box { background:var(--card); border:1px solid var(--border); border-radius:16px; }
+    .status-box strong { display:block; color:#fff; margin-bottom:8px; font-size:1.2rem; }
+    [hidden] { display:none !important; }
   </style>
 </head>
 <body>
-  <header><h1>🔥 Cozinha</h1><div id="clock"></div></header>
-  <div class="grid" id="orders"></div>
+  <section class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <h1>🔥 Cozinha</h1>
+      <p>Entre com o acesso da cozinha para ver os pedidos em preparo.</p>
+      <form id="loginForm">
+        <div class="field">
+          <label for="loginEmail">E-mail</label>
+          <input id="loginEmail" type="email" required placeholder="cozinha@burgerfalcone.com" />
+        </div>
+        <div class="field">
+          <label for="loginPassword">Senha</label>
+          <input id="loginPassword" type="password" required placeholder="••••••••" />
+        </div>
+        <button class="btn btn--primary" type="submit">Entrar na cozinha</button>
+        <p class="error" id="loginError" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="kitchen" id="kitchenScreen" hidden>
+    <header>
+      <h1>🔥 Cozinha</h1>
+      <div class="header-actions">
+        <span id="userName"></span>
+        <span id="clock"></span>
+        <button class="btn btn--ghost" id="logoutBtn" type="button">Sair</button>
+      </div>
+    </header>
+    <div id="statusBox" class="status-box" hidden></div>
+    <div class="grid" id="orders"></div>
+  </section>
+
   <script type="module">
     const API = "/api";
-    const token = localStorage.getItem("admin_token");
-    if (!token) location.href = "/admin/";
-    const headers = { Authorization: `Bearer ${token}` };
+    const loginScreen = document.getElementById("loginScreen");
+    const kitchenScreen = document.getElementById("kitchenScreen");
+    const loginError = document.getElementById("loginError");
+    const statusBox = document.getElementById("statusBox");
+    const ordersEl = document.getElementById("orders");
+    let pollTimer = null;
+
+    function getToken() {
+      return localStorage.getItem("admin_token");
+    }
+
+    function setAuth(token, user) {
+      localStorage.setItem("admin_token", token);
+      localStorage.setItem("admin_user", JSON.stringify(user));
+    }
+
+    function clearAuth() {
+      localStorage.removeItem("admin_token");
+      localStorage.removeItem("admin_user");
+    }
+
+    function getUser() {
+      try { return JSON.parse(localStorage.getItem("admin_user")); } catch { return null; }
+    }
+
+    function showLogin(message = "") {
+      if (pollTimer) clearInterval(pollTimer);
+      loginScreen.hidden = false;
+      kitchenScreen.hidden = true;
+      loginError.hidden = !message;
+      loginError.textContent = message;
+    }
+
+    function showKitchen(user) {
+      loginScreen.hidden = true;
+      kitchenScreen.hidden = false;
+      document.getElementById("userName").textContent = user?.name || "Cozinha";
+      load();
+      if (!pollTimer) pollTimer = setInterval(load, 8000);
+    }
 
     function elapsed(createdAt) {
-      const start = new Date(createdAt.replace(" ", "T")).getTime();
+      const start = new Date(String(createdAt).replace(" ", "T")).getTime();
       const diff = Math.max(0, Date.now() - start);
       const m = Math.floor(diff / 60000).toString().padStart(2, "0");
       const s = Math.floor((diff % 60000) / 1000).toString().padStart(2, "0");
       return `${m}:${s}`;
     }
 
-    async function load() {
-      const res = await fetch(`${API}/orders/kitchen`, { headers });
-      const orders = await res.json();
-      const el = document.getElementById("orders");
-      if (!orders.length) { el.innerHTML = '<div class="empty">Nenhum pedido em preparo</div>'; return; }
-      el.innerHTML = orders.map((o) => `
-        <article class="card" data-created="${o.created_at}">
-          <h2>Pedido #${o.order_number}</h2>
-          <div class="timer" data-timer="${o.created_at}">${elapsed(o.created_at)}</div>
-          ${o.items.map((i) => `<div class="item"><strong>${i.quantity}x</strong> ${i.product_name}${i.addons?.length ? `<br><small>+ ${i.addons.map((a) => a.addon_name).join(", ")}</small>` : ""}</div>`).join("")}
-          ${o.notes ? `<p class="notes">⚠️ ${o.notes}</p>` : ""}
-        </article>`).join("");
+    function showStatus(title, message) {
+      statusBox.hidden = false;
+      statusBox.innerHTML = `<strong>${title}</strong><p>${message}</p>`;
+      ordersEl.innerHTML = "";
     }
 
+    async function load() {
+      const token = getToken();
+      if (!token) return showLogin();
+
+      try {
+        const res = await fetch(`${API}/orders/kitchen`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (res.status === 401) {
+          clearAuth();
+          return showLogin("Sessão expirada. Entre novamente.");
+        }
+
+        if (!res.ok) {
+          const isHtml = (res.headers.get("content-type") || "").includes("text/html");
+          if (res.status === 404 || isHtml) {
+            return showStatus(
+              "Servidor indisponível",
+              "A API ainda não está rodando em produção. Configure o Node.js Web App na Hostinger para liberar a cozinha."
+            );
+          }
+          const data = await res.json().catch(() => ({}));
+          return showStatus("Erro ao carregar pedidos", data.error || `Erro ${res.status}`);
+        }
+
+        statusBox.hidden = true;
+        const orders = await res.json();
+        if (!orders.length) {
+          ordersEl.innerHTML = '<div class="empty">Nenhum pedido em preparo</div>';
+          return;
+        }
+
+        ordersEl.innerHTML = orders.map((o) => `
+          <article class="card" data-created="${o.created_at}">
+            <h2>Pedido #${o.order_number}</h2>
+            <div class="timer" data-timer="${o.created_at}">${elapsed(o.created_at)}</div>
+            ${o.items.map((i) => `<div class="item"><strong>${i.quantity}x</strong> ${i.product_name}${i.addons?.length ? `<br><small>+ ${i.addons.map((a) => a.addon_name).join(", ")}</small>` : ""}</div>`).join("")}
+            ${o.notes ? `<p class="notes">⚠️ ${o.notes}</p>` : ""}
+          </article>`).join("");
+      } catch {
+        showStatus(
+          "Sem conexão com o servidor",
+          "Não foi possível buscar os pedidos. Verifique se o backend Node.js está ativo."
+        );
+      }
+    }
+
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      loginError.hidden = true;
+
+      try {
+        const res = await fetch(`${API}/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: document.getElementById("loginEmail").value.trim(),
+            password: document.getElementById("loginPassword").value,
+          }),
+        });
+
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          if (res.status === 404) {
+            throw new Error("API indisponível. O backend Node.js ainda não está rodando no servidor.");
+          }
+          throw new Error(data.error || "Não foi possível entrar.");
+        }
+
+        const allowedRoles = ["kitchen", "admin", "manager"];
+        if (!allowedRoles.includes(data.user?.role)) {
+          throw new Error("Este acesso não tem permissão para a cozinha.");
+        }
+
+        setAuth(data.token, data.user);
+        showKitchen(data.user);
+      } catch (error) {
+        loginError.textContent = error.message;
+        loginError.hidden = false;
+      }
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      clearAuth();
+      showLogin();
+    });
+
     setInterval(() => {
+      document.getElementById("clock").textContent = new Date().toLocaleTimeString("pt-BR");
       document.querySelectorAll("[data-timer]").forEach((el) => {
         el.textContent = elapsed(el.dataset.timer);
       });
     }, 1000);
 
-    setInterval(load, 8000);
-    setInterval(() => { document.getElementById("clock").textContent = new Date().toLocaleTimeString("pt-BR"); }, 1000);
-    load();
+    (function init() {
+      const user = getUser();
+      const token = getToken();
+      const allowedRoles = ["kitchen", "admin", "manager"];
+      if (token && user && allowedRoles.includes(user.role)) {
+        showKitchen(user);
+      } else {
+        if (token) clearAuth();
+        showLogin();
+      }
+    })();
   </script>
 </body>
 </html>

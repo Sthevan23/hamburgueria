@@ -102,6 +102,10 @@ function showApp(user) {
   document.getElementById("loginScreen").hidden = true;
   document.getElementById("appShell").hidden = false;
   document.getElementById("userChip").textContent = user.name;
+  if (user.role === "kitchen") {
+    window.location.href = "/admin/kitchen.html";
+    return;
+  }
   buildNav(user.role);
   navigate("dashboard");
   startPolling();
