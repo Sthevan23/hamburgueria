@@ -1,0 +1,22 @@
+# Burger Falcone — sobrescreve config do site antigo (Luma)
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Bloqueia redirecionamentos externos deixados pelo site antigo
+  RewriteCond %{HTTP_HOST} !^sthevandev\.com\.br$ [NC]
+  RewriteCond %{HTTP_HOST} !^www\.sthevandev\.com\.br$ [NC]
+  RewriteRule ^ - [F]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-cache, no-store, must-revalidate"
+  Header set Pragma "no-cache"
+  Header set Expires "0"
+</IfModule>
