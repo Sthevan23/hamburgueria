@@ -1,5 +1,5 @@
 import { Router } from "express";
-import db from "../db/database.js";
+import db from "../db/client.js";
 import { authRequired, requirePermission, restaurantScope } from "../middleware/auth.js";
 
 const router = Router();
@@ -17,12 +17,12 @@ function periodFilter(period, customFrom, customTo) {
   return { clause: "date(o.created_at) = date('now')", params: [] };
 }
 
-router.get("/", requirePermission("dashboard"), (req, res) => {
+router.get("/", requirePermission("dashboard"), async (req, res) => {
   const rid = restaurantScope(req);
   const period = req.query.period || "today";
   const { clause, params } = periodFilter(period, req.query.from, req.query.to);
 
-  const stats = db.prepare(`
+  const stats = await db.prepare(`
     SELECT
       COALESCE(SUM(CASE WHEN status != 'cancelled' THEN total ELSE 0 END), 0) as revenue,
       COUNT(*) as orders,
@@ -32,19 +32,19 @@ router.get("/", requirePermission("dashboard"), (req, res) => {
     FROM orders o WHERE restaurant_id = ? AND ${clause}
   `).get(rid, ...params);
 
-  const customers = db.prepare("SELECT COUNT(*) as count FROM customers WHERE restaurant_id = ?").get(rid);
-  const productsSold = db.prepare(`
+  const customers = await db.prepare("SELECT COUNT(*) as count FROM customers WHERE restaurant_id = ?").get(rid);
+  const productsSold = await db.prepare(`
     SELECT COALESCE(SUM(oi.quantity), 0) as count
     FROM order_items oi JOIN orders o ON o.id = oi.order_id
     WHERE o.restaurant_id = ? AND o.status != 'cancelled' AND ${clause}
   `).get(rid, ...params);
 
-  const recentOrders = db.prepare(`
+  const recentOrders = await db.prepare(`
     SELECT id, order_number, customer_name, total, payment_method, status, created_at
     FROM orders WHERE restaurant_id = ? ORDER BY created_at DESC LIMIT 8
   `).all(rid);
 
-  const chartData = db.prepare(`
+  const chartData = await db.prepare(`
     SELECT date(created_at) as date,
       COALESCE(SUM(CASE WHEN status != 'cancelled' THEN total ELSE 0 END), 0) as revenue,
       COUNT(*) as orders
@@ -52,7 +52,7 @@ router.get("/", requirePermission("dashboard"), (req, res) => {
     GROUP BY date(created_at) ORDER BY date
   `).all(rid);
 
-  const restaurant = db.prepare("SELECT is_open FROM restaurants WHERE id = ?").get(rid);
+  const restaurant = await db.prepare("SELECT is_open FROM restaurants WHERE id = ?").get(rid);
 
   res.json({
     stats: {

@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-import { initDatabase } from "./db/database.js";
+import { initDb } from "./db/client.js";
 import { seedDatabase } from "./db/seed.js";
 
 import authRoutes from "./routes/auth.js";
@@ -22,9 +22,6 @@ import notificationsRoutes from "./routes/notifications.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, "..");
-
-initDatabase();
-seedDatabase();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -63,10 +60,17 @@ app.get("/admin", (req, res) => {
   res.sendFile(path.join(rootDir, "admin", "index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`\n🍔 Burger Falcone rodando em ${APP_URL}`);
-  console.log(`📋 Cardápio:  ${APP_URL}/`);
-  console.log(`⚙️  Admin:     ${APP_URL}/admin/`);
-  console.log(`👨‍🍳 Cozinha:  ${APP_URL}/admin/kitchen.html`);
-  console.log(`\nLogin admin: admin@burgerfalcone.com / admin123\n`);
-});
+async function bootstrap() {
+  await initDb();
+  if (!process.env.DB_HOST) await seedDatabase();
+
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`\n🍔 Burger Falcone rodando em ${APP_URL}`);
+    console.log(`📋 Cardápio:  ${APP_URL}/`);
+    console.log(`⚙️  Admin:     ${APP_URL}/admin/`);
+    console.log(`👨‍🍳 Cozinha:  ${APP_URL}/admin/kitchen.html`);
+    console.log(`\nLogin admin: admin@burgerfalcone.com / admin123\n`);
+  });
+}
+
+bootstrap();

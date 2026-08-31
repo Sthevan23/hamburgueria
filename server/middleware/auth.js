@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import db from "../db/database.js";
+import db from "../db/client.js";
 
 const JWT_SECRET = process.env.JWT_SECRET || "burger-falcone-secret-change-in-production";
 const JWT_EXPIRES = "7d";
@@ -16,14 +16,14 @@ export function verifyToken(token) {
   return jwt.verify(token, JWT_SECRET);
 }
 
-export function authRequired(req, res, next) {
+export async function authRequired(req, res, next) {
   const header = req.headers.authorization;
   if (!header?.startsWith("Bearer ")) {
     return res.status(401).json({ error: "Não autenticado." });
   }
   try {
     const payload = verifyToken(header.slice(7));
-    const user = db.prepare("SELECT * FROM users WHERE id = ? AND active = 1").get(payload.id);
+    const user = await db.prepare("SELECT * FROM users WHERE id = ? AND active = 1").get(payload.id);
     if (!user) return res.status(401).json({ error: "Usuário inválido." });
     req.user = user;
     next();
