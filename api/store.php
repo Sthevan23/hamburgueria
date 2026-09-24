@@ -5,11 +5,11 @@ const MENU_FILE = dirname(__DIR__) . '/data/menu-seed.json';
 const JWT_SECRET = 'burger-falcone-secret-change-in-production';
 const ADMIN_HASH = '$2a$10$V01hM1DKxxRa.v5c0A8evO8ErKucSqDZyZuEwOsTYXMCqZkE8ZvGu';
 
-function store_now(): string {
+function store_now() {
   return gmdate('Y-m-d H:i:s');
 }
 
-function store_seed(): array {
+function store_seed() {
   $menu = ['categories' => [], 'products' => [], 'highlights' => []];
   if (is_file(MENU_FILE)) {
     $decoded = json_decode((string) file_get_contents(MENU_FILE), true);
@@ -147,7 +147,7 @@ function store_seed(): array {
   ];
 }
 
-function store_load(): array {
+function store_load() {
   $dir = dirname(STORE_FILE);
   if (!is_dir($dir)) @mkdir($dir, 0775, true);
   if (!is_file(STORE_FILE)) {
@@ -165,22 +165,22 @@ function store_load(): array {
   return $data;
 }
 
-function store_save(array $data): void {
+function store_save($data) {
   $dir = dirname(STORE_FILE);
   if (!is_dir($dir)) @mkdir($dir, 0775, true);
   file_put_contents(STORE_FILE, json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES), LOCK_EX);
 }
 
-function store_next(array &$data, string $key): int {
+function store_next(&$data, $key) {
   $data['next'][$key] = (int) ($data['next'][$key] ?? 1);
   return $data['next'][$key]++;
 }
 
-function b64url(string $raw): string {
+function b64url($raw) {
   return rtrim(strtr(base64_encode($raw), '+/', '-_'), '=');
 }
 
-function jwt_sign(array $payload): string {
+function jwt_sign($payload) {
   $payload['exp'] = time() + 60 * 60 * 24 * 7;
   $header = b64url(json_encode(['alg' => 'HS256', 'typ' => 'JWT']));
   $body = b64url(json_encode($payload));
@@ -188,11 +188,13 @@ function jwt_sign(array $payload): string {
   return "$header.$body.$sig";
 }
 
-function jwt_verify(?string $token): ?array {
+function jwt_verify($token) {
   if (!$token) return null;
   $parts = explode('.', $token);
   if (count($parts) !== 3) return null;
-  [$header, $body, $sig] = $parts;
+  $header = $parts[0];
+  $body = $parts[1];
+  $sig = $parts[2];
   $expected = b64url(hash_hmac('sha256', "$header.$body", JWT_SECRET, true));
   if (!hash_equals($expected, $sig)) return null;
   $payload = json_decode(base64_decode(strtr($body, '-_', '+/')), true);
@@ -200,7 +202,7 @@ function jwt_verify(?string $token): ?array {
   return $payload;
 }
 
-function find_user(array $data, string $email): ?array {
+function find_user($data, $email) {
   $email = strtolower(trim($email));
   foreach ($data['users'] as $user) {
     if (($user['email'] ?? '') === $email && !empty($user['active'])) return $user;
@@ -208,7 +210,7 @@ function find_user(array $data, string $email): ?array {
   return null;
 }
 
-function find_by_id(array $items, $id): ?array {
+function find_by_id($items, $id) {
   foreach ($items as $item) {
     if ((string) ($item['id'] ?? '') === (string) $id) return $item;
   }

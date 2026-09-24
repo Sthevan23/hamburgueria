@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS');
@@ -12,31 +14,31 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') {
 
 require_once __DIR__ . '/store.php';
 
-function json_body(): array {
+function json_body() {
   $raw = file_get_contents('php://input');
   if (!$raw) return [];
   $data = json_decode($raw, true);
   return is_array($data) ? $data : [];
 }
 
-function send($data, int $code = 200): void {
+function send($data, $code = 200) {
   http_response_code($code);
   echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
   exit;
 }
 
-function fail(string $message, int $code = 400): void {
+function fail($message, $code = 400) {
   send(['error' => $message], $code);
 }
 
-function request_method(): string {
+function request_method() {
   $method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
   $override = $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'] ?? '';
   if ($override) $method = strtoupper($override);
   return $method;
 }
 
-function request_path(): string {
+function request_path() {
   $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
   $uri = rawurldecode($uri);
   if (preg_match('#/api(?:/index\.php)?(/.*)?$#', $uri, $m)) {
@@ -45,7 +47,7 @@ function request_path(): string {
   return trim($uri, '/');
 }
 
-function auth_user(array $store): array {
+function auth_user($store) {
   $header = $_SERVER['HTTP_AUTHORIZATION'] ?? $_SERVER['REDIRECT_HTTP_AUTHORIZATION'] ?? '';
   if (!$header && function_exists('apache_request_headers')) {
     $headers = apache_request_headers();
@@ -59,7 +61,7 @@ function auth_user(array $store): array {
   return $user;
 }
 
-function can(array $user, string $perm): bool {
+function can($user, $perm) {
   if (($user['role'] ?? '') === 'admin') return true;
   $map = [
     'manager' => ['dashboard', 'orders', 'menu', 'addons', 'stock', 'finance', 'customers', 'coupons', 'reports', 'settings', 'kitchen', 'notifications'],
@@ -69,7 +71,7 @@ function can(array $user, string $perm): bool {
   return in_array($perm, $map[$user['role'] ?? ''] ?? [], true);
 }
 
-function with_items(array $order): array {
+function with_items($order) {
   $order['items'] = $order['items'] ?? [];
   foreach ($order['items'] as &$item) {
     $item['addons'] = $item['addons'] ?? [];
@@ -77,7 +79,7 @@ function with_items(array $order): array {
   return $order;
 }
 
-function public_restaurant(array $r): array {
+function public_restaurant($r) {
   $whatsapp = preg_replace('/\D+/', '', (string) ($r['whatsapp'] ?? ''));
   if (!$whatsapp || preg_match('/^5500+$/', $whatsapp)) $whatsapp = '5535987216486';
   return [
@@ -288,13 +290,13 @@ if ($path === 'dashboard' && $method === 'GET') {
     foreach ($o['items'] ?? [] as $item) $sold += (int) $item['quantity'];
   }
   $recent = $orders;
-  usort($recent, fn($a, $b) => strcmp($b['created_at'] ?? '', $a['created_at'] ?? ''));
+  usort($recent, function ($a, $b) { return strcmp($b['created_at'] ?? '', $a['created_at'] ?? ''); });
   $recent = array_slice($recent, 0, 8);
   send([
     'stats' => [
       'revenue' => $revenue,
       'orders' => count($orders),
-      'avgTicket' => $orders ? $revenue / max(1, count(array_filter($orders, fn($o) => ($o['status'] ?? '') !== 'cancelled'))) : 0,
+      'avgTicket' => $orders ? $revenue / max(1, count(array_filter($orders, function ($o) { return ($o['status'] ?? '') !== 'cancelled'; }))) : 0,
       'customers' => count($store['customers']),
       'productsSold' => $sold,
       'pending' => $pending,
@@ -309,7 +311,7 @@ if ($path === 'dashboard' && $method === 'GET') {
 if ($path === 'orders' && $method === 'GET') {
   if (!can($user, 'orders')) fail('Sem permissão.', 403);
   $list = array_map('with_items', $store['orders']);
-  usort($list, fn($a, $b) => strcmp($b['created_at'] ?? '', $a['created_at'] ?? ''));
+  usort($list, function ($a, $b) { return strcmp($b['created_at'] ?? '', $a['created_at'] ?? ''); });
   send($list);
 }
 
@@ -319,7 +321,7 @@ if ($path === 'orders/kitchen' && $method === 'GET') {
   foreach ($store['orders'] as $o) {
     if (in_array($o['status'] ?? '', ['new', 'preparing'], true)) $list[] = with_items($o);
   }
-  usort($list, fn($a, $b) => strcmp($a['created_at'] ?? '', $b['created_at'] ?? ''));
+  usort($list, function ($a, $b) { return strcmp($a['created_at'] ?? '', $b['created_at'] ?? ''); });
   send($list);
 }
 
@@ -463,7 +465,7 @@ if (preg_match('#^menu/products/(\d+)/duplicate$#', $path, $m) && $method === 'P
 
 if (preg_match('#^menu/products/(\d+)$#', $path, $m) && $method === 'DELETE') {
   if (!can($user, 'menu')) fail('Sem permissão.', 403);
-  $store['products'] = array_values(array_filter($store['products'], fn($p) => (string) $p['id'] !== $m[1]));
+  $store['products'] = array_values(array_filter($store['products'], function ($p) use ($m) { return (string) $p['id'] !== $m[1]; }));
   store_save($store);
   send(['ok' => true]);
 }
@@ -472,7 +474,7 @@ if ($path === 'addons/groups' && $method === 'GET') {
   if (!can($user, 'addons') && !can($user, 'menu')) fail('Sem permissão.', 403);
   $groups = [];
   foreach ($store['addon_groups'] as $g) {
-    $g['addons'] = array_values(array_filter($store['addons'], fn($a) => (int) $a['group_id'] === (int) $g['id']));
+    $g['addons'] = array_values(array_filter($store['addons'], function ($a) use ($g) { return (int) $a['group_id'] === (int) $g['id']; }));
     $groups[] = $g;
   }
   send($groups);
