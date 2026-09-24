@@ -25,15 +25,25 @@ export async function api(path, options = {}) {
   const token = getToken();
   if (token) headers.Authorization = `Bearer ${token}`;
 
+  const method = (options.method || "GET").toUpperCase();
+  if (["PUT", "PATCH", "DELETE"].includes(method)) {
+    headers["X-HTTP-Method-Override"] = method;
+  }
+
   const res = await fetch(`${API_BASE}${path}`, { ...options, headers });
-  const data = await res.json().catch(() => ({}));
+  const text = await res.text();
+  let data = {};
+  try { data = text ? JSON.parse(text) : {}; } catch { data = {}; }
 
   if (!res.ok) {
     if (res.status === 401 && !path.includes("/auth/login")) {
       clearAuth();
       window.location.reload();
     }
-    throw new Error(data.error || "Erro na requisição.");
+    const fallback = res.status === 404
+      ? "API do servidor não respondeu. Recarregue a página em alguns segundos."
+      : "Erro na requisição.";
+    throw new Error(data.error || fallback);
   }
   return data;
 }

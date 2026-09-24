@@ -4,10 +4,16 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
   # HTTPS
   RewriteCond %{HTTPS} off
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # API PHP (Hostinger não roda Node neste site)
+  RewriteRule ^api/index\.php$ - [L]
+  RewriteRule ^api(/.*)?$ api/index.php [QSA,L]
 
   # Bloqueia redirecionamentos externos deixados pelo site antigo
   RewriteCond %{HTTP_HOST} !^sthevandev\.com\.br$ [NC]
