@@ -29,9 +29,9 @@ export async function seedDatabase() {
   const restaurant = await insertRestaurant.run(
     "Burger Falcone",
     "burger-falcone",
-    "5500000000000",
-    "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=1400&q=80",
-    "(00) 00000-0000",
+    "5535987216486",
+    "assets/products/burger-banner.jpg",
+    "(35) 98721-6486",
     "Rua Exemplo, 123 — Centro"
   );
   const restaurantId = restaurant.lastInsertRowid;

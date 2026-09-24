@@ -33,6 +33,7 @@
     .item { padding:8px 0; border-bottom:1px solid rgba(255,255,255,.06); font-size:1.1rem; }
     .notes { color:#fcd34d; margin-top:12px; }
     .empty, .status-box { text-align:center; padding:80px 20px; color:var(--muted); font-size:1.1rem; }
+    .card .btn { margin-top:14px; width:100%; }
     .status-box { background:var(--card); border:1px solid var(--border); border-radius:16px; }
     .status-box strong { display:block; color:#fff; margin-bottom:8px; font-size:1.2rem; }
     [hidden] { display:none !important; }
@@ -167,7 +168,13 @@
             <div class="timer" data-timer="${o.created_at}">${elapsed(o.created_at)}</div>
             ${o.items.map((i) => `<div class="item"><strong>${i.quantity}x</strong> ${i.product_name}${i.addons?.length ? `<br><small>+ ${i.addons.map((a) => a.addon_name).join(", ")}</small>` : ""}</div>`).join("")}
             ${o.notes ? `<p class="notes">⚠️ ${o.notes}</p>` : ""}
+            <button class="btn btn--ghost" type="button" data-print="${o.id}">Imprimir cupom</button>
           </article>`).join("");
+        ordersEl.querySelectorAll("[data-print]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            window.open(`/admin/print.html?id=${btn.dataset.print}&autoprint=1`, `print-${btn.dataset.print}`, "width=420,height=720");
+          });
+        });
       } catch {
         showStatus(
           "Sem conexão com o servidor",

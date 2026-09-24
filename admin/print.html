@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imprimir pedido — Burger Falcone</title>
+  <style>
+    :root { --paper: 80mm; }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #e5e5e5;
+      color: #111;
+      font-family: "Courier New", Courier, ui-monospace, monospace;
+    }
+    .toolbar {
+      position: sticky;
+      top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      background: #111;
+      color: #fff;
+    }
+    .toolbar button, .toolbar a {
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      color: #111;
+      background: #fff;
+    }
+    .toolbar button.primary { background: #ef4444; color: #fff; }
+    .status { padding: 24px; text-align: center; font-family: Inter, sans-serif; }
+    .ticket-wrap { display: flex; justify-content: center; padding: 16px; }
+    .ticket {
+      width: var(--paper);
+      background: #fff;
+      color: #000;
+      padding: 8px 10px 16px;
+      line-height: 1.35;
+      font-size: 12px;
+    }
+    .ticket.paper-58 { --paper: 58mm; font-size: 11px; }
+    .center { text-align: center; }
+    .bold { font-weight: 800; }
+    .tiny { font-size: 10px; }
+    .line { border: 0; border-top: 1px dashed #000; margin: 8px 0; }
+    .row { display: flex; justify-content: space-between; gap: 8px; }
+    .item { margin: 6px 0; }
+    .addons { padding-left: 12px; font-size: 11px; }
+    .brand { font-size: 16px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+    .muted { opacity: .85; }
+
+    @media print {
+      @page { size: 80mm auto; margin: 2mm; }
+      html, body { background: #fff; }
+      .toolbar, .status { display: none !important; }
+      .ticket-wrap { padding: 0; }
+      .ticket { width: 76mm; padding: 0; }
+      .ticket.paper-58 { width: 54mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar" id="toolbar">
+    <button class="primary" type="button" id="printBtn">Imprimir na MINIMEN</button>
+    <a href="/admin/">Voltar ao admin</a>
+  </div>
+  <div class="status" id="status">Carregando cupom do pedido...</div>
+  <div class="ticket-wrap" id="ticketWrap" hidden></div>
+
+  <script type="module">
+    const money = (v) => Number(v || 0).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    const params = new URLSearchParams(location.search);
+    const orderId = params.get("id");
+    const paper = params.get("paper") === "58" ? "58" : "80";
+    const copies = Math.max(1, Math.min(3, Number(params.get("copies") || 1)));
+    const autoPrint = params.has("autoprint") || params.get("auto") === "1";
+
+    if (paper === "58") {
+      const style = document.createElement("style");
+      style.textContent = "@media print { @page { size: 58mm auto; margin: 2mm; } }";
+      document.head.appendChild(style);
+    }
+
+    const status = document.getElementById("status");
+    const wrap = document.getElementById("ticketWrap");
+
+    function token() {
+      return localStorage.getItem("admin_token");
+    }
+
+    function esc(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function when(value) {
+      if (!value) return "—";
+      return new Date(String(value).replace(" ", "T")).toLocaleString("pt-BR");
+    }
+
+    function render(order, restaurant) {
+      const typeLabel = order.type === "delivery" ? "ENTREGA" : "RETIRADA";
+      const itemsHtml = (order.items || []).map((item) => {
+        const addons = (item.addons || [])
+          .map((a) => `<div class="addons">+ ${esc(a.addon_name)} ${a.price ? money(a.price) : ""}</div>`)
+          .join("");
+        return `<div class="item">
+          <div class="row"><span>${item.quantity}x ${esc(item.product_name)}</span><span>${money(item.total_price)}</span></div>
+          ${addons}
+          ${item.notes ? `<div class="addons">Obs: ${esc(item.notes)}</div>` : ""}
+        </div>`;
+      }).join("");
+
+      const ticket = `
+        <article class="ticket paper-${paper}">
+          <div class="center brand">${esc(restaurant?.name || "Burger Falcone")}</div>
+          <div class="center tiny">${esc(restaurant?.address || "")}</div>
+          <div class="center tiny">${esc(restaurant?.phone || restaurant?.whatsapp || "")}</div>
+          <hr class="line" />
+          <div class="center bold">PEDIDO #${esc(order.order_number)}</div>
+          <div class="center">${when(order.created_at)}</div>
+          <div class="center bold">${typeLabel}</div>
+          <hr class="line" />
+          <div><strong>Cliente:</strong> ${esc(order.customer_name)}</div>
+          ${order.customer_phone ? `<div><strong>Tel:</strong> ${esc(order.customer_phone)}</div>` : ""}
+          ${order.address_text ? `<div><strong>End:</strong> ${esc(order.address_text)}</div>` : ""}
+          <hr class="line" />
+          <div class="bold">ITENS</div>
+          ${itemsHtml}
+          <hr class="line" />
+          <div class="row"><span>Subtotal</span><span>${money(order.subtotal)}</span></div>
+          ${Number(order.discount) > 0 ? `<div class="row"><span>Desconto ${order.coupon_code ? `(${esc(order.coupon_code)})` : ""}</span><span>- ${money(order.discount)}</span></div>` : ""}
+          ${Number(order.delivery_fee) > 0 ? `<div class="row"><span>Entrega</span><span>${money(order.delivery_fee)}</span></div>` : ""}
+          <div class="row bold"><span>TOTAL</span><span>${money(order.total)}</span></div>
+          <div style="margin-top:6px"><strong>Pagamento:</strong> ${esc(order.payment_method || "—")}</div>
+          ${order.notes ? `<div><strong>Obs:</strong> ${esc(order.notes)}</div>` : ""}
+          <hr class="line" />
+          <div class="center bold">Obrigado pelo pedido!</div>
+          <div class="center tiny muted">Confira os itens na hora</div>
+        </article>`;
+
+      wrap.innerHTML = Array.from({ length: copies }, () => ticket).join("");
+      wrap.hidden = false;
+      status.hidden = true;
+    }
+
+    async function load() {
+      if (!orderId) {
+        status.textContent = "Pedido não informado.";
+        return;
+      }
+      if (!token()) {
+        status.innerHTML = "Faça login no admin para imprimir. <a href='/admin/'>Entrar</a>";
+        return;
+      }
+      try {
+        const headers = { Authorization: `Bearer ${token()}` };
+        const [orderRes, settingsRes] = await Promise.all([
+          fetch(`/api/orders/${orderId}`, { headers }),
+          fetch("/api/settings", { headers }),
+        ]);
+        if (orderRes.status === 401) {
+          status.innerHTML = "Sessão expirada. <a href='/admin/'>Entrar novamente</a>";
+          return;
+        }
+        if (!orderRes.ok) {
+          const err = await orderRes.json().catch(() => ({}));
+          status.textContent = err.error || "Pedido não encontrado.";
+          return;
+        }
+        const order = await orderRes.json();
+        let restaurant = settingsRes.ok ? await settingsRes.json() : {};
+        if (!settingsRes.ok) {
+          const pub = await fetch("/api/public/menu");
+          if (pub.ok) restaurant = (await pub.json()).restaurant || {};
+        }
+        render(order, restaurant);
+        document.title = `Pedido #${order.order_number}`;
+        if (autoPrint) setTimeout(() => window.print(), 400);
+      } catch {
+        status.textContent = "Não foi possível carregar o pedido.";
+      }
+    }
+
+    document.getElementById("printBtn").addEventListener("click", () => window.print());
+    load();
+  </script>
+</body>
+</html>

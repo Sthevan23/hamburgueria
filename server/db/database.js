@@ -9,7 +9,7 @@ if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
 const dbPath = path.join(dataDir, "burger_falcone.db");
 const db = new DatabaseSync(dbPath);
-db.exec("PRAGMA journal_mode = WAL");
+db.exec("PRAGMA journal_mode = DELETE");
 db.exec("PRAGMA foreign_keys = ON");
 
 export function initDatabase() {

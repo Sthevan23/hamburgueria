@@ -1,6 +1,7 @@
 import {
   AuthAPI, setAuth, clearAuth, getUser, SettingsAPI, NotificationsAPI, MenuAPI, OrdersAPI,
 } from "./api.js";
+import { getPrintSettings, openPrint, wasPrinted, markPrinted } from "./print.js";
 import { toast, openModal, closeModal } from "./utils.js";
 import {
   renderDashboard, renderOrders, renderMenu, renderAddons, renderStock, renderFinance,
@@ -182,6 +183,13 @@ function startPolling() {
       if (data.newOrders?.length) {
         document.getElementById("orderSound")?.play().catch(() => {});
         toast(`Novo pedido: #${data.newOrders[0].order_number}`, "success");
+        if (getPrintSettings().autoPrint) {
+          data.newOrders.forEach((order) => {
+            if (wasPrinted(order.id)) return;
+            markPrinted(order.id);
+            openPrint(order.id, { silent: true });
+          });
+        }
         if (currentPage === "orders") navigate("orders");
       }
       updateNotifBadge();

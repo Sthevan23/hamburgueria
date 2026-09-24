@@ -177,9 +177,9 @@ sql.push("CREATE INDEX idx_products_category ON products(category_id);");
 sql.push("CREATE INDEX idx_customers_phone ON customers(phone);\n");
 
 sql.push(`INSERT INTO restaurants (name, slug, whatsapp, banner_url, phone, address, is_open, min_order, delivery_fee, prep_time, schedule_json) VALUES (
-  'Burger Falcone', 'burger-falcone', '5500000000000',
-  'https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=1400&q=80',
-  '(00) 00000-0000', 'Rua Exemplo, 123 - Centro', 1, 25, 5, 30,
+  'Burger Falcone', 'burger-falcone', '5535987216486',
+  'assets/products/burger-banner.jpg',
+  '(35) 98721-6486', 'Rua Exemplo, 123 - Centro', 1, 25, 5, 30,
   '{"days":[0,2,3,4,5,6],"open":"18:00","close":"23:30"}'
 );`);
 

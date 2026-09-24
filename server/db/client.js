@@ -1,11 +1,6 @@
 import mysql from "mysql2/promise";
-import { DatabaseSync } from "node:sqlite";
-import path from "path";
-import { fileURLToPath } from "url";
-import fs from "fs";
-import { initDatabase as initSqliteSchema } from "./database.js";
+import sqliteDb, { initDatabase as initSqliteSchema } from "./database.js";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const useMySQL = Boolean(process.env.DB_HOST);
 
 let pool = null;
@@ -30,9 +25,7 @@ export async function initDb() {
   }
 
   initSqliteSchema();
-  const dataDir = path.join(__dirname, "../../data");
-  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-  sqlite = new DatabaseSync(path.join(dataDir, "burger_falcone.db"));
+  sqlite = sqliteDb;
   sqlite.exec("PRAGMA foreign_keys = ON");
   console.log("SQLite local iniciado");
 }

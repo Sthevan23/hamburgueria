@@ -55,8 +55,10 @@ router.get("/menu", async (req, res) => {
       name: restaurant.name,
       logoUrl: restaurant.logo_url,
       bannerUrl: restaurant.banner_url,
-      phone: restaurant.phone,
-      whatsapp: restaurant.whatsapp,
+      phone: restaurant.phone && restaurant.phone !== "(00) 00000-0000" ? restaurant.phone : "(35) 98721-6486",
+      whatsapp: restaurant.whatsapp && !/^5500+$/.test(String(restaurant.whatsapp).replace(/\D/g, ""))
+        ? restaurant.whatsapp
+        : "5535987216486",
       address: restaurant.address,
       isOpen: !!restaurant.is_open,
       closedMessage: restaurant.closed_message,

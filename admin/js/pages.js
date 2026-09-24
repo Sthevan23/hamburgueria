@@ -3,6 +3,7 @@ import {
   CustomersAPI, CouponsAPI, ReportsAPI, SettingsAPI, UsersAPI, NotificationsAPI,
 } from "./api.js";
 import { money, dateTime, statusBadge, emptyState, mobileTable } from "./utils.js";
+import { openPrint, getPrintSettings, savePrintSettings } from "./print.js";
 
 let revenueChart = null;
 
@@ -82,6 +83,12 @@ export async function renderOrders(container, onUpdate) {
       await renderOrders(container, onUpdate);
     });
   });
+  container.querySelectorAll("[data-print]").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      openPrint(btn.dataset.print, { silent: true });
+    });
+  });
   window.lucide?.createIcons();
 }
 
@@ -97,6 +104,7 @@ function orderCard(o) {
     ${o.address_text ? `<p>${o.address_text}</p>` : ""}
     ${o.notes ? `<p><em>${o.notes}</em></p>` : ""}
     <div class="order-card__actions">
+      <button class="btn btn--sm btn--ghost" data-print="${o.id}" type="button">Imprimir</button>
       ${nextStatus ? `<button class="btn btn--sm btn--primary" data-id="${o.id}" data-status="${nextStatus}">Avançar</button>` : ""}
       ${o.status !== "cancelled" && o.status !== "completed" ? `<button class="btn btn--sm btn--danger" data-id="${o.id}" data-status="cancelled">Cancelar</button>` : ""}
     </div>
@@ -297,6 +305,29 @@ export async function renderSettings(container) {
       <div class="field"><label>Mensagem quando fechado</label><textarea name="closed_message" rows="2">${data.closed_message || ""}</textarea></div>
       <button class="btn btn--primary" type="submit">Salvar configurações</button>
     </form>
+    <form id="printerForm" class="card form-grid" style="margin-top:16px">
+      <h3 class="card__title">Impressora térmica (MINIMEN)</h3>
+      <p style="margin:0;color:var(--text-muted);font-size:.9rem">Mesmo fluxo da Aurora: o cupom abre em 80mm e o Windows usa a impressora MINIMEN no diálogo de impressão. Na primeira vez, escolha <strong>MINIMEN</strong> e marque para lembrar.</p>
+      <label><input type="checkbox" name="autoPrint" ${getPrintSettings().autoPrint ? "checked" : ""} /> Imprimir automaticamente pedidos novos</label>
+      <div class="form-row">
+        <div class="field"><label>Largura do papel</label>
+          <select name="paper">
+            <option value="80" ${getPrintSettings().paper === "80" ? "selected" : ""}>80mm (MINIMEN / padrão)</option>
+            <option value="58" ${getPrintSettings().paper === "58" ? "selected" : ""}>58mm</option>
+          </select>
+        </div>
+        <div class="field"><label>Vias</label>
+          <select name="copies">
+            <option value="1" ${Number(getPrintSettings().copies) === 1 ? "selected" : ""}>1 via</option>
+            <option value="2" ${Number(getPrintSettings().copies) === 2 ? "selected" : ""}>2 vias (cliente + cozinha)</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn--primary" type="submit">Salvar impressora</button>
+        <button class="btn btn--ghost" type="button" id="testPrintBtn">Testar impressão</button>
+      </div>
+    </form>
     <div class="card" style="margin-top:16px"><h3 class="card__title">Bairros de entrega</h3>
       <div class="table-wrap"><table><thead><tr><th>Bairro</th><th>Taxa</th></tr></thead>
       <tbody>${(data.zones || []).map((z) => `<tr><td>${z.name}</td><td>${money(z.fee)}</td></tr>`).join("")}</tbody></table></div></div>`;
@@ -305,6 +336,26 @@ export async function renderSettings(container) {
     e.preventDefault();
     const fd = new FormData(e.target);
     await SettingsAPI.update(Object.fromEntries(fd.entries()));
+  });
+
+  document.getElementById("printerForm")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    savePrintSettings({
+      autoPrint: fd.get("autoPrint") === "on",
+      paper: fd.get("paper") || "80",
+      copies: Number(fd.get("copies") || 1),
+    });
+    alert("Configuração da impressora salva.");
+  });
+
+  document.getElementById("testPrintBtn")?.addEventListener("click", async () => {
+    const orders = await OrdersAPI.list();
+    if (!orders[0]) {
+      alert("Faça um pedido de teste no cardápio para imprimir o cupom.");
+      return;
+    }
+    openPrint(orders[0].id, { silent: true });
   });
 }
 

@@ -68,6 +68,7 @@ router.patch("/:id/status", requirePermission("orders"), async (req, res) => {
   const order = await db.prepare("SELECT * FROM orders WHERE id = ? AND restaurant_id = ?").get(req.params.id, rid);
   if (!order) return res.status(404).json({ error: "Pedido não encontrado." });
 
+  const now = new Date().toISOString().slice(0, 19).replace("T", " ");
   let sql = "UPDATE orders SET status = ?, updated_at = ?";
   const params = [status, now];
   if (status === "preparing" && !order.accepted_at) {

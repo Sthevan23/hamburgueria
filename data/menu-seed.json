@@ -53,7 +53,7 @@
       "price": 22,
       "category": "smash",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-smash.jpg"
     },
     {
       "id": "smash-bacon",
@@ -62,7 +62,7 @@
       "price": 26,
       "category": "smash",
       "badge": "Popular",
-      "image": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-smash-bacon.jpg"
     },
     {
       "id": "duplo-smash",
@@ -71,7 +71,7 @@
       "price": 30,
       "category": "smash",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-double-smash.jpg"
     },
     {
       "id": "falcone-smash",
@@ -80,7 +80,7 @@
       "price": 34,
       "category": "smash",
       "badge": "Destaque",
-      "image": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-loaded.jpg"
     },
     {
       "id": "x-artesanal",
@@ -89,7 +89,7 @@
       "price": 22,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-picanha.jpg"
     },
     {
       "id": "x-artesanal-egg",
@@ -98,7 +98,7 @@
       "price": 24,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "x-artesanal-egg-bacon",
@@ -107,7 +107,7 @@
       "price": 26,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "x-duplo-artesanal",
@@ -116,7 +116,7 @@
       "price": 26,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-double-smash.jpg"
     },
     {
       "id": "oreo",
@@ -125,7 +125,7 @@
       "price": 28,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-double-smash.jpg"
     },
     {
       "id": "sparta",
@@ -134,7 +134,7 @@
       "price": 25,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "saturno",
@@ -143,7 +143,7 @@
       "price": 30,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-picanha.jpg"
     },
     {
       "id": "taz-mania",
@@ -152,7 +152,7 @@
       "price": 30,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-picanha.jpg"
     },
     {
       "id": "patolino",
@@ -161,7 +161,7 @@
       "price": 25,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-simples.jpg"
     },
     {
       "id": "jerry",
@@ -170,7 +170,7 @@
       "price": 26,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-picanha.jpg"
     },
     {
       "id": "frajola",
@@ -179,7 +179,7 @@
       "price": 26,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-loaded.jpg"
     },
     {
       "id": "galaxias",
@@ -188,7 +188,7 @@
       "price": 32,
       "category": "artesanais",
       "badge": "Premium",
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-xtudo.jpg"
     },
     {
       "id": "falcone-peixe",
@@ -197,7 +197,7 @@
       "price": 32,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-peixe.jpg"
     },
     {
       "id": "falcone-caramelo",
@@ -206,7 +206,7 @@
       "price": 27,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "mega",
@@ -215,7 +215,7 @@
       "price": 26,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-artesanal.jpg"
     },
     {
       "id": "cinderela",
@@ -224,7 +224,7 @@
       "price": 24,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "bumblebee",
@@ -233,7 +233,7 @@
       "price": 27,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-xtudo.jpg"
     },
     {
       "id": "megatron",
@@ -242,7 +242,7 @@
       "price": 32,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-double-smash.jpg"
     },
     {
       "id": "optimus-prime",
@@ -251,7 +251,7 @@
       "price": 30,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-xtudo.jpg"
     },
     {
       "id": "meteoro",
@@ -260,7 +260,7 @@
       "price": 28,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "double",
@@ -269,7 +269,7 @@
       "price": 28,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "mec-lanche",
@@ -278,7 +278,7 @@
       "price": 28,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-loaded.jpg"
     },
     {
       "id": "novo-sanduiche-casa",
@@ -287,7 +287,7 @@
       "price": 32,
       "category": "artesanais",
       "badge": "Novo",
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "sanduiche-china",
@@ -296,7 +296,7 @@
       "price": 32,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-smash-bacon.jpg"
     },
     {
       "id": "sanduiche-falcone",
@@ -305,7 +305,7 @@
       "price": 44,
       "category": "artesanais",
       "badge": "Top",
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-xtudo.jpg"
     },
     {
       "id": "sanduiche-bobo-bi",
@@ -314,7 +314,7 @@
       "price": 32,
       "category": "artesanais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-double-smash.jpg"
     },
     {
       "id": "misto",
@@ -323,7 +323,7 @@
       "price": 14,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-simples.jpg"
     },
     {
       "id": "misto-ovo",
@@ -332,7 +332,7 @@
       "price": 15,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-simples.jpg"
     },
     {
       "id": "misto-bacon",
@@ -341,7 +341,7 @@
       "price": 17,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-simples.jpg"
     },
     {
       "id": "americano",
@@ -350,7 +350,7 @@
       "price": 18,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-simples.jpg"
     },
     {
       "id": "bauru",
@@ -359,7 +359,7 @@
       "price": 16,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-simples.jpg"
     },
     {
       "id": "quaresma",
@@ -368,7 +368,7 @@
       "price": 16,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-peixe.jpg"
     },
     {
       "id": "hamburguer",
@@ -377,7 +377,7 @@
       "price": 15,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-smash-bacon.jpg"
     },
     {
       "id": "hamburguer-ovo",
@@ -386,7 +386,7 @@
       "price": 17,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "hamburgao",
@@ -395,7 +395,7 @@
       "price": 17,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-smash-bacon.jpg"
     },
     {
       "id": "x-salada",
@@ -404,7 +404,7 @@
       "price": 15,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "x-burguer",
@@ -413,7 +413,7 @@
       "price": 17,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "x-egg",
@@ -422,7 +422,7 @@
       "price": 18,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "x-duplo",
@@ -431,7 +431,7 @@
       "price": 19,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-xtudo.jpg"
     },
     {
       "id": "x-frango",
@@ -440,7 +440,7 @@
       "price": 21,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "x-bacon",
@@ -449,7 +449,7 @@
       "price": 21,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-smash-bacon.jpg"
     },
     {
       "id": "triplo-x",
@@ -458,7 +458,7 @@
       "price": 18,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-loaded.jpg"
     },
     {
       "id": "x-egg-bacon",
@@ -467,7 +467,7 @@
       "price": 23,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "x-egg-frango",
@@ -476,7 +476,7 @@
       "price": 23,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "x-frango-bacon-especial",
@@ -485,7 +485,7 @@
       "price": 24,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "x-calabresa",
@@ -494,7 +494,7 @@
       "price": 22,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "x-egg-calabresa",
@@ -503,7 +503,7 @@
       "price": 23,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "x-calabresa-egg-bacon",
@@ -512,7 +512,7 @@
       "price": 25,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "x-tudo",
@@ -521,7 +521,7 @@
       "price": 25,
       "category": "tradicionais",
       "badge": "Clássico",
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-xtudo.jpg"
     },
     {
       "id": "x-picanha",
@@ -530,7 +530,7 @@
       "price": 21,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-picanha.jpg"
     },
     {
       "id": "x-picanha-egg",
@@ -539,7 +539,7 @@
       "price": 23,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-picanha.jpg"
     },
     {
       "id": "x-picanha-egg-bacon",
@@ -548,7 +548,7 @@
       "price": 25,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-picanha.jpg"
     },
     {
       "id": "x-egg-picanha-frango",
@@ -557,7 +557,7 @@
       "price": 25,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-picanha.jpg"
     },
     {
       "id": "falcone-especial",
@@ -566,7 +566,7 @@
       "price": 28,
       "category": "tradicionais",
       "badge": "Da casa",
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-xtudo.jpg"
     },
     {
       "id": "falcone-prato",
@@ -575,7 +575,7 @@
       "price": 28,
       "category": "tradicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "novidade-marmitex",
@@ -584,7 +584,7 @@
       "price": 32,
       "category": "tradicionais",
       "badge": "Novo",
-      "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-xtudo.jpg"
     },
     {
       "id": "contra-file-fritas",
@@ -611,7 +611,7 @@
       "price": 70,
       "category": "porcoes",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-peixe.jpg"
     },
     {
       "id": "tilapia-sem-fritas",
@@ -620,7 +620,7 @@
       "price": 60,
       "category": "porcoes",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-peixe.jpg"
     },
     {
       "id": "batata-completa",
@@ -647,7 +647,7 @@
       "price": 60,
       "category": "porcoes",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "frango-passarinho-sem-fritas",
@@ -656,7 +656,7 @@
       "price": 40,
       "category": "porcoes",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "porcao-bife-artesanal",
@@ -719,7 +719,7 @@
       "price": 22,
       "category": "omeletes",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-smash-bacon.jpg"
     },
     {
       "id": "omelete-bacon-g",
@@ -728,7 +728,7 @@
       "price": 30,
       "category": "omeletes",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-smash-bacon.jpg"
     },
     {
       "id": "omelete-frango-m",
@@ -737,7 +737,7 @@
       "price": 22,
       "category": "omeletes",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "omelete-frango-g",
@@ -746,7 +746,7 @@
       "price": 30,
       "category": "omeletes",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "omelete-completo-m",
@@ -1277,7 +1277,7 @@
       "price": 3,
       "category": "adicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-egg.jpg"
     },
     {
       "id": "add-bife-tradicional",
@@ -1313,7 +1313,7 @@
       "price": 7,
       "category": "adicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-picanha.jpg"
     },
     {
       "id": "add-bacon",
@@ -1322,7 +1322,7 @@
       "price": 4,
       "category": "adicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-smash-bacon.jpg"
     },
     {
       "id": "add-frango",
@@ -1331,7 +1331,7 @@
       "price": 4,
       "category": "adicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "add-frango-empanado",
@@ -1340,7 +1340,7 @@
       "price": 7,
       "category": "adicionais",
       "badge": null,
-      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80"
+      "image": "assets/products/burger-chicken.jpg"
     },
     {
       "id": "add-presunto-mucarela",

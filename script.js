@@ -2,8 +2,8 @@
    Burger Falcone — Script
    ============================================ */
 
-/** Altere este número para o WhatsApp real da hamburgueria (somente dígitos com DDI). */
-let WHATSAPP_NUMBER = "5500000000000";
+/** Número de teste do dono — somente dígitos com DDI. */
+let WHATSAPP_NUMBER = "5535987216486";
 let storeConfig = { isOpen: true, closedMessage: "Estamos fechados no momento." };
 
 const STORAGE_KEY = "burger_falcone_cart_v2";
@@ -19,12 +19,17 @@ const STORAGE_KEY = "burger_falcone_cart_v2";
  * image: troque a URL por "assets/images/seu-arquivo.jpg" quando tiver fotos locais.
  */
 const IMG = {
-  smash:
-    "https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80",
-  artesanais:
-    "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80",
-  tradicionais:
-    "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=700&q=80",
+  smash: "assets/products/burger-smash.jpg",
+  smashBacon: "assets/products/burger-smash-bacon.jpg",
+  doubleSmash: "assets/products/burger-double-smash.jpg",
+  loaded: "assets/products/burger-loaded.jpg",
+  artesanais: "assets/products/burger-artesanal.jpg",
+  egg: "assets/products/burger-egg.jpg",
+  chicken: "assets/products/burger-chicken.jpg",
+  xtudo: "assets/products/burger-xtudo.jpg",
+  picanha: "assets/products/burger-picanha.jpg",
+  peixe: "assets/products/burger-peixe.jpg",
+  simples: "assets/products/burger-simples.jpg",
   porcoes:
     "https://images.unsplash.com/photo-1630431341973-02e1b662ec35?auto=format&fit=crop&w=700&q=80",
   porcoesCompleta:
@@ -51,6 +56,50 @@ const IMG = {
     "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=700&q=80",
 };
 
+const BURGER_ROTATE = [
+  IMG.artesanais,
+  IMG.egg,
+  IMG.simples,
+  IMG.xtudo,
+  IMG.smashBacon,
+  IMG.chicken,
+  IMG.picanha,
+  IMG.doubleSmash,
+  IMG.smash,
+  IMG.loaded,
+];
+
+function burgerPhoto(id, category, name = "") {
+  const key = `${id} ${name}`.toLowerCase();
+  if (key.includes("peixe") || key.includes("tilapia") || key.includes("quaresma")) return IMG.peixe;
+  if (key.includes("picanha")) return IMG.picanha;
+  if (key.includes("frango") && !key.includes("tudo")) return IMG.chicken;
+  if (
+    key.includes("tudo") ||
+    key.includes("galaxias") ||
+    key.includes("sanduiche-falcone") ||
+    key.includes("falcone-especial") ||
+    key.includes("marmitex")
+  ) {
+    return IMG.xtudo;
+  }
+  if (category === "smash") {
+    if (key.includes("falcone")) return IMG.loaded;
+    if (key.includes("duplo") || key.includes("double")) return IMG.doubleSmash;
+    if (key.includes("bacon")) return IMG.smashBacon;
+    return IMG.smash;
+  }
+  if (key.includes("misto") || key.includes("bauru") || key.includes("americano")) return IMG.simples;
+  if (key.includes("ovo") || key.includes("egg")) return IMG.egg;
+  if (key.includes("bacon")) return IMG.smashBacon;
+  if (["smash", "artesanais", "tradicionais"].includes(category)) {
+    let hash = 0;
+    for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+    return BURGER_ROTATE[hash % BURGER_ROTATE.length];
+  }
+  return null;
+}
+
 function item(id, name, description, price, category, badge = null, image = null) {
   return {
     id,
@@ -59,7 +108,7 @@ function item(id, name, description, price, category, badge = null, image = null
     price,
     category,
     badge,
-    image: image ?? IMG[category] ?? IMG.artesanais,
+    image: image ?? burgerPhoto(id, category, name) ?? IMG[category] ?? IMG.artesanais,
   };
 }
 
@@ -1287,7 +1336,8 @@ function applyStoreBranding(restaurant) {
     const cover = document.querySelector(".store-cover__img");
     if (cover) cover.src = restaurant.bannerUrl;
   }
-  if (restaurant.whatsapp) WHATSAPP_NUMBER = restaurant.whatsapp;
+  const apiWhatsapp = String(restaurant.whatsapp || "").replace(/\D/g, "");
+  if (apiWhatsapp && !/^5500+$/.test(apiWhatsapp)) WHATSAPP_NUMBER = apiWhatsapp;
   storeConfig = restaurant;
 }
 
@@ -1303,7 +1353,7 @@ async function loadMenuFromAPI() {
       price: p.price,
       category: p.category,
       badge: p.badge,
-      image: p.image,
+      image: p.image || burgerPhoto(p.id, p.category, p.name) || IMG[p.category],
     }));
     CATEGORIES = data.categories;
     HIGHLIGHT_IDS = data.highlights;
