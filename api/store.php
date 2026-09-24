@@ -1,9 +1,9 @@
 <?php
 
-const STORE_FILE = __DIR__ . '/data/store.json';
-const MENU_FILE = dirname(__DIR__) . '/data/menu-seed.json';
-const JWT_SECRET = 'burger-falcone-secret-change-in-production';
-const ADMIN_HASH = '$2a$10$V01hM1DKxxRa.v5c0A8evO8ErKucSqDZyZuEwOsTYXMCqZkE8ZvGu';
+define('STORE_FILE', __DIR__ . '/data/store.json');
+define('MENU_FILE', dirname(__DIR__) . '/data/menu-seed.json');
+define('JWT_SECRET', 'burger-falcone-secret-change-in-production');
+define('ADMIN_HASH', '$2a$10$V01hM1DKxxRa.v5c0A8evO8ErKucSqDZyZuEwOsTYXMCqZkE8ZvGu');
 
 function store_now() {
   return gmdate('Y-m-d H:i:s');
